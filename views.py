@@ -9,7 +9,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import DetailView
 from django.views.generic.base import RedirectView
 
-from extra_views import InlineFormSet, UpdateWithInlinesView
+from extra_views import InlineFormSetFactory, UpdateWithInlinesView
 
 ## condottieri_profiles
 from condottieri_profiles.models import *
@@ -45,7 +45,7 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
             })
         return ctx
 
-class LanguagesInline(InlineFormSet):
+class LanguagesInline(InlineFormSetFactory):
     model = SpokenLanguage
     form_class = SpokenLanguageForm
     factory_kwargs = {'extra': 2}
