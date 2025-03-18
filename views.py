@@ -61,6 +61,9 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateWithInlinesView):
 
     def get_success_url(self):
         messages.success(self.request, _("Your profile has been updated."))
+        next_url = self.request.GET.get('next')
+        if next_url:
+            return next_url
         return self.request.user.profile.get_absolute_url()
 
 class ToggleFriendshipView(LoginRequiredMixin, RedirectView):

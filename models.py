@@ -222,6 +222,10 @@ def create_profile(sender, instance, created, raw, **kwargs):
     if 'pybb' in settings.INSTALLED_APPS:
         return
     profile, created = CondottieriProfile.objects.get_or_create(user=instance)
+    
+    # Add English as default language for new profiles
+    if created:
+        SpokenLanguage.objects.create(profile=profile, code='en')
 
 post_save.connect(create_profile, sender=User)
 
