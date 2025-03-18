@@ -1,9 +1,10 @@
 {% extends 'site_base.html' %}
 
 {% load i18n %}
+{% load static %}
 
 {% block extra_head %}
-<link rel="stylesheet" href="{{ STATIC_URL }}condottieri_profiles/css/profile.css" />
+<link rel="stylesheet" href="{% static 'condottieri_profiles/css/profile.css' %}" />
 {% endblock %}
 
 {% block subnav %}

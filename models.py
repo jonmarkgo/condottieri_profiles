@@ -119,7 +119,7 @@ class CondottieriProfile(models.Model):
         return self.user.username
 
     def get_absolute_url(self):
-        return reverse('profile_detail', kwargs={'username': self.user.username})
+        return reverse('profiles:profile_detail', kwargs={'username': self.user.username})
 
     def has_languages(self):
         """ Returns true if the user has defined at least one known language """
